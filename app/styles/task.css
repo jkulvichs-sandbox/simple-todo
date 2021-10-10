@@ -1,0 +1,63 @@
+task-list {
+	display: flex;
+	flex-direction: column;
+	max-width: 600px;
+	width: 600px;
+	padding: 0 var(--indent-small);
+	margin: var(--indent-large) 0 var(--indent-medium) 0;	
+}
+
+task {
+	display: block;	
+	position: relative;
+	background: var(--color-layer);	
+	color: var(--color-foreground);
+	border-radius: var(--rounding-large);
+	padding: var(--indent-small) var(--indent-medium);
+	box-sizing: border-box;	
+	transition: .1s ease-in-out;	
+	margin: 0 0 var(--indent-small) 0;
+	overflow: hidden;
+}
+
+task header {
+	display: block;
+	font-size: var(--font-size-title);
+	opacity: .8;
+	margin: 0 0 var(--indent-small) 0;
+	transition: .1s ease-in-out;	
+}
+
+task content {
+	display: block;
+	font-size: var(--font-size-regular);
+	transition: .1s ease-in-out;	
+}
+
+task delete-btn {
+	display: block;
+	position: absolute;
+	top: 10px;
+	visibility: hidden;	
+	filter: opacity(0);
+	right: 0;
+	background-image: url('../icons/delete-outline.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: var(--color-layer);
+	border-radius: var(--rounding-circle);
+	width: 36px;
+	height: 36px;
+	transition: .1s ease-in-out;
+	cursor: pointer;
+}
+
+task delete-btn:hover {
+	background-color: var(--color-accent-layer);
+}
+
+task:hover delete-btn {
+	visibility: visible;
+	filter: opacity(1);
+	transform: translateX(-10px);
+}

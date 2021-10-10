@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	<title>TOYOUDO</title>
+	<link rel="icon" href="./app/icons/icon.svg" />
+</head>
+
+<body>
+
+	<!-- Preloader Splash Screen -->
+	<splash>
+		<logo>
+			<svg viewBox="0 0 24 24">
+				<path fill="#FFFFFF" d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 
+			16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" />
+			</svg>
+			<span>TOYOUDO</span>
+		</logo>
+		<style>
+			splash {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				z-index: 9999;
+				filter: opacity(1);
+				transition: .3s ease-in-out;
+				background: #263238;
+			}
+
+			splash[hidden] {
+				filter: opacity(0);
+				visibility: hidden;
+			}
+
+			splash logo {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				filter: opacity(0);
+				animation: .3s ease-in-out .5s anim-splash-logo both;
+			}
+
+			splash logo svg {
+				width: 64px;
+				margin: 0 10px 0 0;
+			}
+
+			splash logo span {
+				font-family: sans-serif;
+				font-size: 24px;
+				font-weight: bold;
+				color: #FFFFFF;
+				animation: .3s ease-in-out .7s anim-splash-title both;
+			}
+
+			@keyframes anim-splash-logo {
+				0% {
+					transform: scale(.8);
+					filter: opacity(0);
+				}
+
+				50% {
+					transform: scale(1.1);
+					filter: opacity(1);
+				}
+
+				100% {
+					transform: scale(1);
+					filter: opacity(1);
+				}
+			}
+
+			@keyframes anim-splash-title {
+				0% {
+					transform: translateX(-30px);
+					filter: opacity(0);
+				}
+
+				100% {
+					transform: translateX(0);
+					filter: opacity(1);
+				}
+			}
+		</style>
+		<script>
+			// Hides splash when content loaded
+			window.addEventListener('load', () =>
+				setTimeout(() => document.querySelector('splash').setAttribute('hidden', ''), 800)
+			)
+		</script>
+	</splash>
+
+	<!-- App Content -->
+	<main>
+		<task-list>			
+		</task-list>
+
+		<task-creator>				
+			<input class="header" type="text" placeholder="My Best Ever Task">
+			<input class="desc" type="text" placeholder="Details of my task">
+			<create-btn></create-btn>
+		</task-creator>
+
+		<template id="task">
+			<task>				
+				<header>Task Name</header>
+				<desc>Task Description</desc>
+				<delete-btn></delete-btn>
+			</task>
+		</template>
+	</main>
+
+</body>
+
+</html>
+
+<!-- App Main Style Module -->
+<link rel="stylesheet" href="./app/styles/index.css">
+</style>
+<!-- App Main Script Module (*.mjs to allow import/export in scripts) -->
+<script src="./app/index.mjs" type="module"></script>

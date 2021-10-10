@@ -1,0 +1,61 @@
+task-creator {
+	display: block;
+	position: relative;
+	max-width: 600px;
+	width: 600px;
+	background: var(--color-layer);	
+	color: var(--color-foreground);
+	border-radius: var(--rounding-large);
+	padding: var(--indent-small) var(--indent-medium);
+	box-sizing: border-box;		
+	margin: 0 0 var(--indent-large) 0;
+}
+
+task-creator input {
+	border: none;
+	outline: none;	
+	font-family: sans-serif;
+	font-size: var(--font-size-regular);
+	background-color: transparent;	
+	width: 100%;
+	color: var(--color-foreground);		
+}
+
+task-creator input::placeholder {
+	color: var(--color-foreground);
+	opacity: .5;
+}
+
+task-creator input.header {
+	font-size: var(--font-size-title);
+	opacity: .8;	
+	margin: 0 0 var(--indent-small) 0;
+}
+
+task-creator create-btn {
+	display: block;
+	position: absolute;
+	top: 10px;
+	visibility: hidden;	
+	filter: opacity(0);
+	right: 0;
+	background-image: url('../icons/plus-circle-outline.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: var(--color-layer);
+	border-radius: var(--rounding-circle);
+	width: 36px;
+	height: 36px;
+	transition: .1s ease-in-out;
+	cursor: pointer;
+}
+
+task-creator create-btn:hover {
+	background-color: var(--color-accent-layer);
+}
+
+task-creator:hover create-btn {
+	visibility: visible;
+	filter: opacity(1);
+	transform: translateX(-10px);
+}
